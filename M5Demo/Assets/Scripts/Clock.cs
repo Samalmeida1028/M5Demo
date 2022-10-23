@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Clock: Component
 {
+    [Range(.1F,10F)]
     public float period;
+    [Range(0F,1F)]
     public float dutycycle;
-    public float prevTime;
-    public float cycle;
+    float prevTime;
+    float cycle;
     bool tempFunctionout;
     void Start()
     {

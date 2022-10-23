@@ -5,11 +5,17 @@ using UnityEngine;
 public class LogicGate : Component
 {
     public Gate logicGate;
+    public float prevTime = 0;
+    public float delay = .01F;
     void Update()
     {
         logicGate.input = input;
+        if(Time.time - prevTime > delay){
+        prevTime = Time.time;
         operating_function();
+        }
         drawConnectionToInput();
+
     }
 
     override public bool operating_function(){
@@ -21,4 +27,5 @@ public class LogicGate : Component
             Debug.DrawLine(gameObject.transform.position, i.gameObject.transform.position);
         }
     }
+
 }
